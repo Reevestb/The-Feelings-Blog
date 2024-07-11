@@ -1,0 +1,1 @@
+--! Any queries done in supabse add them here
