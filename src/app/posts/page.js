@@ -16,13 +16,13 @@ export default async function Posts({ searchParams }) {
   }
   //   console.log(postData);
 
-  async function selId() {
-    "use server";
-    const db = dbConnect();
-    const selId = (await db.query(`SELECT id FROM posts`)).rows;
-    return selId;
-  }
-  const id = await selId();
+  //   async function selId() {
+  //     "use server";
+  //     const db = dbConnect();
+  //     const selId = (await db.query(`SELECT id FROM posts`)).rows;
+  //     return selId;
+  //   }
+  //   const id = await selId();
 
   //   async function deletePost() {
   //     "use server";
@@ -66,6 +66,3 @@ export default async function Posts({ searchParams }) {
     </>
   );
 }
-
-//need some data to sort ascending and descending
-// get posts from the database
