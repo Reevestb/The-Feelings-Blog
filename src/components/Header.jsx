@@ -1,16 +1,22 @@
 import Link from "next/link";
-
+import HeaderStyles from "@/components/Header.module.css";
 export default function Header() {
   return (
-    <>
-      <h1>Posts Blog</h1>
-      <nav className="flex flex-row gap-2">
-        <Link href="/">Home</Link>
+    <main className="flex items-center flex-col m-0 ">
+      <h1 id={HeaderStyles.mainTitle}>The Feelings Blog</h1>
+      <nav className="flex flex-row gap-2 p-3">
+        <Link className={HeaderStyles.button} href="/">
+          Home
+        </Link>
         <br />
-        <Link href="/posts">Posts</Link>
+        <Link className={HeaderStyles.button} href="/posts">
+          Posts
+        </Link>
         <br />
-        <Link href="/newPosts">Add New Post</Link>
+        <Link className={HeaderStyles.button} href="/newPosts">
+          Add New Post
+        </Link>
       </nav>
-    </>
+    </main>
   );
 }

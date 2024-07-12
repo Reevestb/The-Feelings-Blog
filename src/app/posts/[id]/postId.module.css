@@ -1,0 +1,11 @@
+#commentBox {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  /* height: 15vh; */
+  background-color: rgb(89, 84, 84);
+  border: solid 1px white;
+  border-radius: 1rem;
+  margin: 0;
+  padding-left: 1rem;
+}
