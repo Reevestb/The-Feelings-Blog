@@ -1,6 +1,7 @@
 import { dbConnect } from "@/utils/dbConnection";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import style from "@/app/newPosts/newPost.module.css";
 
 export const metadata = {
   title: "Add a new Post",
@@ -35,42 +36,46 @@ export default async function NewPosts() {
 
   return (
     <>
-      <h1>Add a New Post!</h1>
-      <form action={handleSavePost} className="flex flex-col">
-        <label htmlFor="title">Title</label>
-        <input
-          type="text"
-          id="title"
-          name="title"
-          placeholder="Enter Title"
-          className="text-black"
-          required
-        />
-        <label htmlFor="content">Content</label>
-        <textarea
-          name="content"
-          type="text"
-          placeholder="Your Content Here"
-          id="content"
-          className="text-black"
-          required
-        />
-        <label htmlFor="cat_name">Category</label>
-        <select name="cat_id" className="text-black">
-          {catData.map((item) => (
-            <option key={item.id} value={item.id} required>
-              {item.cat_name}
-            </option>
-          ))}
-        </select>
-        <br />
-        <button
-          type="submit"
-          className="flex hover:bg-red-600 h-8 hover:text-white bg-white rounded text-black items-center"
-        >
-          Submit
-        </button>
-      </form>
+      <h1 id={style.postTitle}>Add a New Post!</h1>
+      <section id={style.postForm}>
+        <form action={handleSavePost} className="flex flex-col">
+          <label htmlFor="title">Title</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            placeholder="Enter Title"
+            className="text-black"
+            required
+          />
+          <label htmlFor="content">Content</label>
+          <textarea
+            name="content"
+            type="text"
+            placeholder="Your Content Here"
+            id="content"
+            className="text-black"
+            required
+          />
+          <label htmlFor="cat_name">Category</label>
+          <select name="cat_id" className="text-black">
+            {catData.map((item) => (
+              <option key={item.id} value={item.id} required>
+                {item.cat_name}
+              </option>
+            ))}
+          </select>
+          <br />
+          <button
+            type="submit"
+            // className="flex hover:bg-red-600 h-8 hover:text-white bg-white rounded text-black items-center"
+            className="flex hover:bg-red-600 h-8 hover:text-white bg-white rounded text-black items-center text-center
+             w-32 p-1 justify-center text-base"
+          >
+            Submit
+          </button>
+        </form>
+      </section>
     </>
   );
 }

@@ -15,21 +15,21 @@ export default function SeeEdit({ handleSubmit }) {
       </button>
       {see ? (
         <form action={handleSubmit}>
-          <label htmlFor="comment">Edit Comment</label>
-          <br />
-          <textarea
-            name="comment"
+          <label htmlFor="title">Title</label>
+          <input
             type="text"
-            placeholder="Your comment"
+            id="title"
+            name="title"
+            placeholder="Enter Title"
             className="text-black"
-            rows={4}
+            required
           />
           <button
             className="flex hover:bg-red-600 h-8 hover:text-white bg-white rounded text-black items-center text-center
              w-auto p-1 justify-center text-base"
             type="submit"
           >
-            Submit Edit
+            Submit New Post
           </button>
         </form>
       ) : null}

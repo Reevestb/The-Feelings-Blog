@@ -1,4 +1,5 @@
 import { dbConnect } from "@/utils/dbConnection";
+import Style from "@/components/DeleteCom.module.css";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
@@ -18,6 +19,7 @@ export default function deleteButton({ data, params }) {
     <>
       <form action={handleSubmit}>
         <button
+          id={Style.delBtn}
           className="flex bg-red-600 rounded text-white items-center text-center
              w-14 justify-center mb-2"
           type="submit"

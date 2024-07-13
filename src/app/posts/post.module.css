@@ -1,0 +1,49 @@
+#postTitle {
+  font-size: 5rem;
+  background: linear-gradient(
+    to right,
+    #ef5350,
+    #f48fb1,
+    #7e57c2,
+    #2196f3,
+    #26c6da,
+    #43a047,
+    #eeff41,
+    #f9a825,
+    #ff5722
+  );
+  background-clip: text;
+  color: transparent;
+  margin: 0;
+  width: fit-content;
+  height: fit-content;
+  padding: 0;
+  display: flex;
+  /* justify-content: start; */
+  /* align-items: flex-start; */
+}
+
+#postsTop {
+  display: flex;
+  justify-content: flex-start;
+  /* align-items: center; */
+  flex-direction: row;
+  padding-left: 2.5rem;
+}
+
+#ascDesc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 4rem;
+  gap: 0.5rem;
+}
+#ascDesc :hover {
+  color: rgb(0, 162, 255);
+  background-color: white;
+  border: solid;
+  border-color: white;
+  border-radius: 0.8em;
+  cursor: pointer;
+  filter: drop-shadow(0 0 0.5em rgb(255, 255, 0));
+}

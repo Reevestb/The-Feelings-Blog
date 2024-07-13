@@ -1,0 +1,13 @@
+#delBtn {
+  display: flex;
+  justify-content: center;
+}
+#delBtn:hover {
+  color: white;
+  background-color: red;
+  border: solid;
+  border-color: white;
+  /* border-radius: 0.8em; */
+  cursor: pointer;
+  filter: drop-shadow(0 0 0.5em rgb(246, 2, 2));
+}

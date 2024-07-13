@@ -57,14 +57,16 @@ export default async function PostIdPage({ params }) {
 
   return (
     <>
-      {onePost.map((item) => (
-        <div id="onePostBox" key={item.id}>
-          <h1 className="text-3xl">{item.title}</h1>
-          <h3>{item.cat_name}</h3>
-          <p className="text-lg">{item.content}</p>
-        </div>
-      ))}
-      <section>
+      <div id={idStyles.singlePost}>
+        {onePost.map((item) => (
+          <div id={idStyles.onepostbox} key={item.id}>
+            <h1 id={idStyles.onePostTitle}>{item.title}</h1>
+            <h3 id={idStyles.onePostCat}>{item.cat_name}</h3>
+            <p className="text-lg">Content: {item.content}</p>
+          </div>
+        ))}
+      </div>
+      <section id={idStyles.commentForm}>
         {/* //?comment form will go here */}
         <form className="flex flex-col justify-center" action={handleSubmit}>
           <label htmlFor="username">Username</label>
@@ -80,11 +82,12 @@ export default async function PostIdPage({ params }) {
             type="text"
             placeholder="Your comment"
             className="text-black"
+            rows={5}
           />
           <br />
           <button
             className="flex hover:bg-red-600 h-8 hover:text-white bg-white rounded text-black items-center text-center
-             w-32 p-1 justify-center"
+             w-32 p-1 justify-center text-base"
             type="submit"
           >
             Post Comment
@@ -95,9 +98,9 @@ export default async function PostIdPage({ params }) {
       <section id={idStyles.userComment}>
         {comData.map((item) => (
           <div id={idStyles.commentBox} key={item.id}>
-            <h1>Username: {item.username}</h1>
-            <p>Comment: {item.comment}</p>
-            <DeleteCom data={item.id} params={params} className="flex pb-4" />
+            <h1 className="text-2xl">Username: {item.username}</h1>
+            <p className="text-lg">Comment: {item.comment}</p>
+            <DeleteCom data={item.id} params={params} />
             <EditCom id={item.id} data={item.comment} params={params} />
           </div>
         ))}
