@@ -2,6 +2,11 @@ import { dbConnect } from "@/utils/dbConnection";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
+export const metadata = {
+  title: "Add a new Post",
+  description: "Add a new post with the form to discuss your feelings",
+};
+
 export default async function NewPosts() {
   async function handleSavePost(formData) {
     "use server";

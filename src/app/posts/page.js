@@ -1,12 +1,22 @@
 import { dbConnect } from "@/utils/dbConnection";
 import Link from "next/link";
-// import Delete from "@/components/Delete";
+import DeletePost from "@/components/DeletePost";
+export const metadata = {
+  title: "A list of previous posts from users",
+  description:
+    "Here you can see a list of previous posts, click on one to comment!",
+};
 
 export default async function Posts({ searchParams }) {
   async function getPosts() {
     const db = dbConnect();
 
-    const posts = (await db.query(`SELECT * FROM posts`)).rows;
+    // const posts = (await db.query(`SELECT * FROM posts`)).rows;
+    const posts = (
+      await db.query(
+        `SELECT posts.id, posts.title, posts.content, category.cat_name FROM posts JOIN category ON posts.cat_id = category.id`
+      )
+    ).rows;
     //! return posts
     return posts;
   }
@@ -14,55 +24,30 @@ export default async function Posts({ searchParams }) {
   if (searchParams.sort === "desc") {
     postData.reverse();
   }
-  //   console.log(postData);
-
-  //   async function selId() {
-  //     "use server";
-  //     const db = dbConnect();
-  //     const selId = (await db.query(`SELECT id FROM posts`)).rows;
-  //     return selId;
-  //   }
-  //   const id = await selId();
-
-  //   async function deletePost() {
-  //     "use server";
-  //     const db = dbConnect();
-  //     // const id = deletePost.get("id");
-  //     // const id = await selId();
-  //     const delPost = (
-  //       await db.query(`DELETE FROM posts WHERE id = ${id} RETURNING *`, [id])
-  //     ).rows;
-  //     return delPost;
-  //   }
-  //   const delPost = await deletePost();
-  //   console.log(id);
 
   return (
     <>
       <h1 className="text-5xl">Posts</h1>
       <Link href={"/posts?sort=asc"}>Sort ascending</Link> -{" "}
       <Link href={"/posts?sort=desc"}>Sort descending</Link>
-      {/* //? Will map posts here */}
-      <section className="flex flex-col-reverse">
+      {/*//? Will map posts here */}
+      <section className="flex  p-10 w-96 gap-4 grid-cols-*  ">
         {postData.map((item) => (
-          <div key={item.id}>
+          <div
+            className=" flex flex-col gap-x-1  bg-yellow-400 text-gray-900 font-bold rounded-lg p-4 cursor-pointer transition-colors hover:opacity-20 justify-center"
+            key={item.id}
+          >
             <Link href={`/posts/${item.id}`}>
-              <h1 className="text-2xl">-{item.title}</h1>
+              <h1 className="text-2xl">{item.title}</h1>
+              <br />
+
+              <p>{item.cat_name}</p>
+              <br />
             </Link>
+            <DeletePost data={item.id} />
           </div>
         ))}
       </section>
-      {/* <form action={deletePost}>
-            <input name="id"></input>
-            <button
-              className="flex hover:bg-white h-8 hover:text-red-600 bg-red-600 rounded text-white items-center p-1"
-              type="submit"
-            >
-              DELETE
-            </button>
-          </form> */}
-      {/* <button action={deletePost}>Del</button> */}
-      {/* <p>{item.content}</p> */}
     </>
   );
 }

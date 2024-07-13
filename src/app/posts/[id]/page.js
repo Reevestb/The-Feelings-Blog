@@ -2,6 +2,21 @@ import { dbConnect } from "@/utils/dbConnection";
 import idStyles from "@/app/posts/[id]/postId.module.css";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import DeleteCom from "@/components/DeleteCom";
+import EditCom from "@/components/EditCom";
+
+export async function generateMetadata({ params }) {
+  const db = dbConnect();
+  const posts = (
+    await db.query(`SELECT * FROM posts WHERE posts.id = ${params.id}`)
+  ).rows;
+  const post = posts[0];
+
+  return {
+    title: ` posts - ${post.title}`,
+    description: ` ${post.content} `,
+  };
+}
 
 export default async function PostIdPage({ params }) {
   //get data by filtering by id
@@ -51,7 +66,7 @@ export default async function PostIdPage({ params }) {
       ))}
       <section>
         {/* //?comment form will go here */}
-        <form className="flex flex-col" action={handleSubmit}>
+        <form className="flex flex-col justify-center" action={handleSubmit}>
           <label htmlFor="username">Username</label>
           <input
             name="username"
@@ -68,7 +83,8 @@ export default async function PostIdPage({ params }) {
           />
           <br />
           <button
-            className="flex hover:bg-red-600 h-8 hover:text-white bg-white rounded text-black items-center text-center"
+            className="flex hover:bg-red-600 h-8 hover:text-white bg-white rounded text-black items-center text-center
+             w-32 p-1 justify-center"
             type="submit"
           >
             Post Comment
@@ -76,11 +92,13 @@ export default async function PostIdPage({ params }) {
         </form>
       </section>
       <br />
-      <section id="userComment">
+      <section id={idStyles.userComment}>
         {comData.map((item) => (
           <div id={idStyles.commentBox} key={item.id}>
             <h1>Username: {item.username}</h1>
             <p>Comment: {item.comment}</p>
+            <DeleteCom data={item.id} params={params} className="flex pb-4" />
+            <EditCom id={item.id} data={item.comment} params={params} />
           </div>
         ))}
       </section>

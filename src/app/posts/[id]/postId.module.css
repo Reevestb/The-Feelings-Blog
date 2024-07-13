@@ -7,5 +7,11 @@
   border: solid 1px white;
   border-radius: 1rem;
   margin: 0;
-  padding-left: 1rem;
+  padding: 0.5rem;
+}
+
+#userComment {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.5rem;
 }
