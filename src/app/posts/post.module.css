@@ -47,3 +47,18 @@
   cursor: pointer;
   filter: drop-shadow(0 0 0.5em rgb(255, 255, 0));
 }
+
+#editPost {
+  display: flex;
+  flex-direction: column;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 0.5rem;
+  /* font-size: 1.5rem; */
+  border: solid 2px white;
+  background-color: gray;
+}
+
+#editPost label {
+  font-size: 1.5rem;
+}

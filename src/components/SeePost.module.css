@@ -1,0 +1,31 @@
+#editPost {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 0.5rem;
+  font-size: 1.1125rem;
+  border: solid 2px white;
+  background-color: gray;
+  gap: 0.5rem;
+}
+#editPost label {
+  font-size: 1.125rem;
+}
+
+#submitBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+  font-size: 0.9rem;
+  margin-left: 25%;
+}
+#submitBtn:hover {
+  color: white;
+  background-color: black;
+  border: solid;
+  border-color: white;
+  /* border-radius: 0.8em; */
+  cursor: pointer;
+  filter: drop-shadow(0 0 0.5em rgb(235, 246, 22));
+}
