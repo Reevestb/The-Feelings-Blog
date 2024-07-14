@@ -1,7 +1,14 @@
+import Image from "next/image";
+import Brain from "@/../public/images/brain.jpg";
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1>Main Content</h1>
+    <main className="flex min-h-screen flex-col items-center justify-between p-6">
+      <Image
+        src={Brain}
+        alt="Artwork of feelings in the brain"
+        height={700}
+        width={900}
+      />
     </main>
   );
 }

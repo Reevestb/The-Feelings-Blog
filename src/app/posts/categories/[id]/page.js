@@ -1,10 +1,10 @@
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 import { dbConnect } from "@/utils/dbConnection";
 import Link from "next/link";
 import DeletePost from "@/components/DeletePost";
 import post from "@/app/posts/post.module.css";
 import EditPost from "@/components/EditPost";
-import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
 // import Filter from "@/components/FilteredCat";
 
 export const metadata = {
@@ -13,14 +13,14 @@ export const metadata = {
     "Here you can see a list of previous posts, click on one to comment!",
 };
 
-export default async function Posts({ searchParams }) {
+export default async function CatPosts({ searchParams, params }) {
   async function getPosts() {
     const db = dbConnect();
 
     // const posts = (await db.query(`SELECT * FROM posts`)).rows;
     const posts = (
       await db.query(
-        `SELECT posts.id, posts.title, posts.content, category.cat_name FROM posts JOIN category ON posts.cat_id = category.id`
+        `SELECT posts.id, posts.title, posts.content, category.cat_name FROM posts JOIN category ON posts.cat_id = category.id WHERE cat_id = ${params.id}`
       )
     ).rows;
     //! return posts
@@ -65,7 +65,6 @@ export default async function Posts({ searchParams }) {
           >
             Sort descending
           </Link>
-          {/* <Filter /> */}
         </div>
         <div id={post.postsTop}>
           <form action={handleSelect} className="flex flex-col">
