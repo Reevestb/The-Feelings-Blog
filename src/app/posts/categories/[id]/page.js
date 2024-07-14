@@ -9,8 +9,7 @@ import EditPost from "@/components/EditPost";
 
 export const metadata = {
   title: "A list of previous posts from users",
-  description:
-    "Here you can see a list of previous posts, click on one to comment!",
+  description: "Here you can see a list of previous posts, sorted by category",
 };
 
 export default async function CatPosts({ searchParams, params }) {
@@ -67,7 +66,7 @@ export default async function CatPosts({ searchParams, params }) {
           </Link>
         </div>
         <div id={post.postsTop}>
-          <form action={handleSelect} className="flex flex-col">
+          <form action={handleSelect} className="flex flex-col pt-3">
             <label className="text-1xl" id={post.formTitle} htmlFor="category">
               Filter By Category
             </label>

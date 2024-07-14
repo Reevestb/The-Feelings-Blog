@@ -5,7 +5,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between p-6">
       <Image
         src={Brain}
-        alt="Artwork of feelings in the brain"
+        alt="Artwork of feelings in the brain, created by 'smartboy10'"
         height={700}
         width={900}
       />

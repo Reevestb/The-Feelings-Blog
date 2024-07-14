@@ -68,7 +68,7 @@ export default async function Posts({ searchParams }) {
           {/* <Filter /> */}
         </div>
         <div id={post.postsTop}>
-          <form action={handleSelect} className="flex flex-col">
+          <form action={handleSelect} className="flex flex-col pt-3">
             <label className="text-1xl" id={post.formTitle} htmlFor="category">
               Filter By Category
             </label>
