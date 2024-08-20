@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-export default function SeeEdit({ handleSubmit }) {
+export default function SeeEdit({ handleSubmit, data }) {
   const [see, setSee] = useState(false);
   return (
     <main className="flex flex-col">
@@ -23,6 +23,7 @@ export default function SeeEdit({ handleSubmit }) {
             placeholder="Your comment"
             className="text-black"
             rows={4}
+            defaultValue={data}
           />
           <button
             className="flex hover:bg-red-600 h-8 hover:text-white bg-white rounded text-black items-center text-center

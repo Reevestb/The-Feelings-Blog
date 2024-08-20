@@ -45,3 +45,17 @@ Describing errors or bugs you encountered while completing your assignment.
 Requesting feedback about a specific part of your submission.
 
 # My Reflection
+
+## The Feelings Blog
+
+### A place where you can go to submit how you feel about something and have users give comments to advise you
+
+I met all requirements for this blog, planning the tables on drawSql, drawing the wireframe on okSO and discussing with other members about what type of blog to do. I struggled with sorting out some of the dynamic pages and metaData but it wasn’t anything that stopped me for too long, just silly typo errors.
+My Website is not mobile friendly, using Next.js as a new framework and tailwind css for the styling, I wanted my priorities to be reaching the requirements for this assignment.
+I knew coming into the assignment that I was going to do the categories stretch goal so I decided to implement a categories table from the get go, deciding and planning this early on really helped with understanding the relationship between the tables more effectively enabling me to add this into my form for the new posts.
+From here I tried to focus on the other stretch goals, firstly I started with the delete… The sql wasn’t so bad, using the sql editor on supabase I was able to confirm it was correct, implementing it on vs code was a whole different ball game! I spent the best part of this assignment getting it to work, it took a lot of rubber ducking with another class member Jake but eventually we figured it out so massive thanks to him. I then implemented this with the comments as well.
+After I had solved the delete I basically used the same method for the update, a few hiccups with parsing data through props but with another set of eyes on it Richard really helped to point out my typo’s and mistakes to correct them. The part I struggled with was planning how I wanted it to appear on the page, I didn’t want it there permanently so I had to make a few components, some as client components to allow me to use useState so I could show or hide the edit form but this came together pretty quickly. after how long the delete button took and I implemented it to both posts and comments.
+Filtering by categories became by next challenge, I tried a few different ways of doing this and most failed! I couldn’t make it work creating a separate client component and using useEffect as I had no way of getting the data from the database, I did try passing props but was having all sort of issues. in the end i just created another page inside my posts page and used another sql go through my category table to get the category names, then I mapped through this sql in a from creating a function to help me do so. Again this was done rubber ducking with class mates Jake and Richard so a big thanks to them!
+I styled the website using a combination of tailwind and module.css, I tried to use tailwind as much as possible but in the places I couldn’t I created a module to style it how I wanted. Going forward from this assignment I will try a more mobile friendly approach to what I do.
+
+A couple of things i’d like feed back for is if there is a simpler way to implement the update and delete methods than the way I have done, how to populate the edit form data with what the post/comment had already used and how to reset the forms as I struggled to get these to work for myself.
