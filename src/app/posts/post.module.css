@@ -88,3 +88,50 @@
 #editPost label {
   font-size: 1.5rem;
 }
+
+/*! for mobile */
+@media (width <= 768px) {
+  #postTitle {
+    display: flex;
+    font-size: 2rem;
+  }
+
+  #ascDesc {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-left: 0.25em;
+    gap: 0.5rem;
+    height: fit-content;
+  }
+
+  #postsTop {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    padding-left: 0.25em;
+    align-items: center;
+  }
+
+  #postsTop {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+  }
+  #postsTop button {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(96 165 250);
+    color: white;
+    align-items: center;
+    margin-top: 5px;
+    border-radius: 25px;
+    font-weight: 600;
+  }
+
+  #formTitle {
+    font-size: 1.2em;
+  }
+}

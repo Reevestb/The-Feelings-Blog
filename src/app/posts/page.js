@@ -50,6 +50,7 @@ export default async function Posts({ searchParams }) {
     <>
       <section id={post.postsTop}>
         <h1 id={post.postTitle}>Posts</h1>
+
         <div id={post.ascDesc}>
           <Link
             className="flex bg-blue-400 rounded text-white items-center text-center
@@ -69,7 +70,7 @@ export default async function Posts({ searchParams }) {
         </div>
         <div id={post.postsTop}>
           <form action={handleSelect} className="flex flex-col pt-3">
-            <label className="text-1xl" id={post.formTitle} htmlFor="category">
+            <label id={post.formTitle} htmlFor="category">
               Filter By Category
             </label>
             <select name="category" className="text-black">
@@ -82,8 +83,8 @@ export default async function Posts({ searchParams }) {
 
             <button
               type="submit"
-              className="flex bg-white rounded text-black items-center text-center
-             w-fit justify-center hover:bg-blue-400 hover:text-white mt-2 px-3"
+              //   className="flex bg-white rounded text-black items-center text-center
+              //  w-fit justify-center hover:bg-blue-400 hover:text-white mt-2 px-3"
             >
               Change
             </button>
@@ -91,7 +92,7 @@ export default async function Posts({ searchParams }) {
         </div>
       </section>
       {/*//? Will map posts here */}
-      <section className="grid p-10 w-fit grid-cols-4 grid-rows-* gap-x-20 gap-y-14 ">
+      <section className="grid p-10 w-fit grid-cols-4 grid-rows-* gap-x-20 gap-y-14  ">
         {postData.map((item) => (
           <div
             className=" flex flex-col gap-2 h-auto bg-blue-400 text-white font-bold rounded-lg p-4 pr-10 cursor-pointer transition-colors hover:bg-gray-500 hover:text-blue-400 "
