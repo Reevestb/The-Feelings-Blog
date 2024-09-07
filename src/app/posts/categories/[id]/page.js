@@ -89,27 +89,33 @@ export default async function CatPosts({ searchParams, params }) {
         </div>
       </section>
       {/*//? Will map posts here */}
-      <section className="grid p-10 w-fit grid-cols-4 grid-rows-* gap-x-20 gap-y-14 ">
-        {postData.map((item) => (
-          <div
-            className=" flex flex-col gap-2 h-auto bg-blue-400 text-white font-bold rounded-lg p-4 pr-10 cursor-pointer transition-colors hover:bg-gray-500 hover:text-blue-400 "
-            key={item.id}
-            id={post.editForm}
-          >
-            <Link href={`/posts/${item.id}`}>
-              <h1 className="text-2xl w-48">{item.title}</h1>
-              <br />
-              <p className="text-yellow-300">{item.cat_name}</p>
-              <br />
-            </Link>
-            <EditPost
-              data={item.id}
-              content={item.content}
-              title={item.title}
-            />
-            <DeletePost data={item.id} />
-          </div>
-        ))}
+      <section className="flex justify-center p-4 sm:p-10">
+        <div className="grid p-4 sm:p-10 w-fit sm:grid-cols-4 grid-cols-1 gap-x-10 gap-y-10 items-center ">
+          {postData.map((item) => (
+            <div
+              className=" flex flex-col justify-center items-center gap-2 h-auto bg-blue-400 text-white font-bold rounded-lg p-4 pr-10 cursor-pointer transition-colors hover:bg-gray-500 hover:text-blue-400 "
+              key={item.id}
+              id={post.editForm}
+            >
+              <Link href={`/posts/${item.id}`}>
+                <h1 className="flex justify-center text-2xl w-48">
+                  {item.title}
+                </h1>
+                <br />
+                <p className=" flex justify-center text-yellow-300">
+                  {item.cat_name}
+                </p>
+                <br />
+              </Link>
+              <EditPost
+                data={item.id}
+                content={item.content}
+                title={item.title}
+              />
+              <DeletePost data={item.id} />
+            </div>
+          ))}
+        </div>
       </section>
     </>
   );
