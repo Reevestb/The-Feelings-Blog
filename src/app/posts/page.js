@@ -47,7 +47,7 @@ export default async function Posts({ searchParams }) {
   }
 
   return (
-    <>
+    <main className="bg-black">
       <section id={post.postsTop}>
         <h1 id={post.postTitle}>Posts</h1>
 
@@ -121,6 +121,6 @@ export default async function Posts({ searchParams }) {
           ))}
         </div>
       </section>
-    </>
+    </main>
   );
 }

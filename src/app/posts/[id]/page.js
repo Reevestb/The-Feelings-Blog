@@ -56,7 +56,7 @@ export default async function PostIdPage({ params }) {
   const comData = await getComments();
 
   return (
-    <>
+    <main className="bg-black">
       <div id={idStyles.singlePost}>
         {onePost.map((item) => (
           <div id={idStyles.onepostbox} key={item.id}>
@@ -105,7 +105,7 @@ export default async function PostIdPage({ params }) {
           </div>
         ))}
       </section>
-    </>
+    </main>
   );
 }
 

@@ -35,7 +35,7 @@ export default async function NewPosts() {
   const catData = await getCategory();
 
   return (
-    <>
+    <main className="bg-black">
       <h1 id={style.postTitle}>Add a New Post!</h1>
       <section id={style.postForm}>
         <form action={handleSavePost} className="flex flex-col">
@@ -76,6 +76,6 @@ export default async function NewPosts() {
           </button>
         </form>
       </section>
-    </>
+    </main>
   );
 }
