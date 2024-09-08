@@ -69,14 +69,18 @@ export default async function PostIdPage({ params }) {
       <section id={idStyles.commentForm}>
         {/* //?comment form will go here */}
         <form className="flex flex-col justify-center" action={handleSubmit}>
-          <label htmlFor="username">Username</label>
+          <label htmlFor="username" className="text-white">
+            Username
+          </label>
           <input
             name="username"
             type="text"
             placeholder="Your Username"
             className="text-black"
           />
-          <label htmlFor="comment">Your Comment</label>
+          <label htmlFor="comment" className="text-white">
+            Your Comment
+          </label>
           <textarea
             name="comment"
             type="text"
@@ -98,8 +102,8 @@ export default async function PostIdPage({ params }) {
       <section id={idStyles.userComment}>
         {comData.map((item) => (
           <div id={idStyles.commentBox} key={item.id}>
-            <h1 className="text-2xl">Username: {item.username}</h1>
-            <p className="text-lg">Comment: {item.comment}</p>
+            <h1 className="text-2xl text-white">Username: {item.username}</h1>
+            <p className="text-lg text-white">Comment: {item.comment}</p>
             <DeleteCom data={item.id} params={params} />
             <EditCom id={item.id} data={item.comment} params={params} />
           </div>

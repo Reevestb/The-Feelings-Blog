@@ -35,7 +35,7 @@ export default async function NewPosts() {
   const catData = await getCategory();
 
   return (
-    <main className="bg-black">
+    <main className="bg-black min-h-screen">
       <h1 id={style.postTitle}>Add a New Post!</h1>
       <section id={style.postForm}>
         <form action={handleSavePost} className="flex flex-col">
