@@ -84,8 +84,10 @@ export default async function Posts({ searchParams }) {
 
             <button
               type="submit"
-              //   className="flex bg-white rounded text-black items-center text-center
+              // className="flex bg-white rounded text-black items-center text-center
               //  w-fit justify-center hover:bg-blue-400 hover:text-white mt-2 px-3"
+              className="flex bg-blue-400 rounded text-white items-center text-center
+             w-auto justify-center hover:bg-white hover:text-blue-400 mt-2 px-3"
             >
               Change
             </button>
